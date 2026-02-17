@@ -13,22 +13,23 @@ GOOGLE_API_KEY = "AIzaSyCj8xyFZY1MEMIHAIAJjZ3_DhaD3pOS26o"
 st.set_page_config(page_title="AI Career Architect", layout="wide")
 
 # --- GEMINI MODEL HELPER ---
-def get_gemini_response(prompt):
-    if GOOGLE_API_KEY=="PASTE_YOUR_GOOGLE_API_KEY_HERE":
-        return "Error: You forgot to replace the API key placeholder in the code!"
-    
-    try:
-        client = genai.Client(api_key=GOOGLE_API_KEY)
 
-        response = client.models.generate_content(
-            model="gemma-3n-e2b-it",
-            contents=prompt
-        )
+genai.configure(api_key=GOOGLE_API_KEY)
+
+def get_gemini_response(prompt):
+    if GOOGLE_API_KEY == "PASTE_YOUR_GOOGLE_API_KEY_HERE":
+        return "Error: You forgot to replace the API key placeholder in the code!"
+
+    try:
+        model = genai.GenerativeModel("gemini-1.5-flash")
+
+        response = model.generate_content(prompt)
 
         return response.text
 
     except Exception as e:
         return f"Error: {str(e)}"
+
 
 # --- PDF GENERATOR FUNCTION ---
 def create_pdf(text, filename="document.pdf"):
