@@ -21,7 +21,7 @@ def get_gemini_response(prompt):
         return "Error: You forgot to replace the API key placeholder in the code!"
 
     try:
-        model = genai.GenerativeModel("gemini-1.5-flash")
+        model = genai.GenerativeModel("gemma-3n-e2b-it")
 
         response = model.generate_content(prompt)
 
