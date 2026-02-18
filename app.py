@@ -4,7 +4,7 @@ from fpdf import FPDF
 
 # --- API CONFIGURATION (HARDCODED) ---
 # ⚠️ WARNING: Never upload this file to GitHub with your key inside!
-GOOGLE_API_KEY = "AIzaSyCj8xyFZY1MEMIHAIAJjZ3_DhaD3pOS26o"
+GOOGLE_API_KEY = "AIzaSyAdB0m1vvxaDc1tdtH5ehKqnjOhZp-UzPg"
 
 # Configure the API immediately
 
