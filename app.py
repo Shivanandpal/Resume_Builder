@@ -1,10 +1,11 @@
 import streamlit as st
 import google.generativeai as genai
 from fpdf import FPDF
-
+import os
+from dotenv import load_dotenv
 # --- API CONFIGURATION (HARDCODED) ---
 # ⚠️ WARNING: Never upload this file to GitHub with your key inside!
-GOOGLE_API_KEY = "AIzaSyAdB0m1vvxaDc1tdtH5ehKqnjOhZp-UzPg"
+API_KEY=os.getenv("GOOGLE_API_KEY")
 
 # Configure the API immediately
 
@@ -14,10 +15,10 @@ st.set_page_config(page_title="AI Career Architect", layout="wide")
 
 # --- GEMINI MODEL HELPER ---
 
-genai.configure(api_key=GOOGLE_API_KEY)
+genai.configure(api_key=API_KEY)
 
 def get_gemini_response(prompt):
-    if GOOGLE_API_KEY == "PASTE_YOUR_GOOGLE_API_KEY_HERE":
+    if API_KEY == "PASTE_YOUR_GOOGLE_API_KEY_HERE":
         return "Error: You forgot to replace the API key placeholder in the code!"
 
     try:
