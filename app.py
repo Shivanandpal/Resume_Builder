@@ -32,7 +32,7 @@ def get_gemini_response(prompt):
         return f"Error: {str(e)}"
 def get_gemini_response(prompt):
     try:
-        client = genai.Client(api_key=GOOGLE_API_KEY)
+        client = genai.Client(api_key=API_KEY)
 
         response = client.models.generate_content(
             model="gemini-1.5-flash",
