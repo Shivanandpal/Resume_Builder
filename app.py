@@ -27,7 +27,7 @@ st.set_page_config(page_title="AI Resume Builder", layout="wide")
 
 def get_gemini_response(prompt):
     try:
-        model = genai.GenerativeModel("gemini-1.5-flash")
+        model = genai.GenerativeModel("gemma-3n-e2b-it")
 
         response = model.generate_content(prompt)
 
