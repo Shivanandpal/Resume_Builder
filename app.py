@@ -30,6 +30,23 @@ def get_gemini_response(prompt):
 
     except Exception as e:
         return f"Error: {str(e)}"
+def get_gemini_response(prompt):
+    try:
+        client = genai.Client(api_key=GOOGLE_API_KEY)
+
+        response = client.models.generate_content(
+            model="gemini-1.5-flash",
+            contents=prompt,
+        )
+
+        if not response or not response.text:
+            return "No response returned from Gemini."
+
+        return response.text
+
+    except Exception as e:
+        print("Gemini Error:", e)
+        return f"Error: {str(e)}"
 
 
 # --- PDF GENERATOR FUNCTION ---
